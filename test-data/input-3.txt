@@ -1,0 +1,3 @@
+GT4500,1,1,1,0 # az első torpedó mindig meghibásodik
+TORPEDO,SINGLE
+TORPEDO,SINGLE # a második viszont nem
