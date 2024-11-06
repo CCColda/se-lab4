@@ -9,7 +9,7 @@
 
 ---
 
-### 1.1 (`input-0.txt`)
+### 1.1 (`input-1.txt`)
 |                                   |  |
 |:----------------------------------|:-|
 |Tesztelt követelmény               | a SINGLE firingMode az elsődleges torpedót lövi ki először |
@@ -28,10 +28,10 @@
 ### 1.2 (`input-1.txt`)
 |                                   |  |
 |:----------------------------------|:-|
-|Tesztelt követelmény               | SINGLE firingMode-nál a második lövés a másodlagos tárból történik |
-|Előfeltételek (kiindulási állapot) | van torpedó a tárakban, és még nem történt lövés |
-|A teszt lépései                    | - tárak feltöltése `GT4500,1,0,1,0` <br/> - tüzelés `TORPEDO,SINGLE` <br/> - tüzelés `TORPEDO,SINGLE` <br/> - tüzelés `TORPEDO,SINGLE` |
-|Elvárt kimenet/eredmény            | az első torpedó az elsődleges tárból lett kilőve, a második a másodlagosból, így nem marad több torpedó (az utolsó tüzelés sikertelen) |
+|Tesztelt követelmény               | SINGLE firingMode-nál ha üres a másodlagos tár, az elsődlegesből próbálunk lőni |
+|Előfeltételek (kiindulási állapot) | van 2 torpedó az elsődleges tárban |
+|A teszt lépései                    | - tárak feltöltése `GT4500,2,0,0,0` <br/> - tüzelés `TORPEDO,SINGLE` <br/> - tüzelés `TORPEDO,SINGLE` <br/> |
+|Elvárt kimenet/eredmény            | mindkét torpedó tüzelésre kerül az elsődleges tárból |
 
 ### 1.3 (`input-2.txt`)
 |                                   |  |
@@ -71,3 +71,12 @@
 |Előfeltételek (kiindulási állapot) | az elsődleges tárban nincs torpedó, a másodlagosban 1 torpedó van |
 |A teszt lépései                    | - tárak feltöltése `GT4500,0,0,1,0` <br/> - tüzelés `TORPEDO,ALL` |
 |Elvárt kimenet/eredmény            | a másodlagos tár kiürül |
+
+### cov-1 (`input-5.txt`)
+
+|                                   |  |
+|:----------------------------------|:-|
+|Tesztelt követelmény               | ALL firingMode teljesen üres tárral |
+|Előfeltételek (kiindulási állapot) | teljesen üres tárak |
+|A teszt lépései                    | - hajó létrehozása `GT4500,0,0,0,0` <br/> - tüzelés `TORPEDO,ALL` |
+|Elvárt kimenet/eredmény            | a tüzelés sikertelen |
